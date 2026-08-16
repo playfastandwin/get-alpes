@@ -559,6 +559,14 @@ const AUTH_CONFIGURED = !SUPABASE_URL.includes("YOUR_SUPABASE") && !SUPABASE_ANO
 const supabaseClient = AUTH_CONFIGURED && window.supabase
   ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
   : null;
+  /* ---------- skip login if already signed in ---------- */
+if (supabaseClient) {
+  supabaseClient.auth.getSession().then(({ data: { session } }) => {
+    if (session) {
+      window.location.href = DASHBOARD_URL;
+    }
+  });
+}
 
 /* ---------- cookie consent (custom, no third-party tool) ---------- */
 const COOKIE_KEY = "alpes_cookie_consent";
