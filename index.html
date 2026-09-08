@@ -339,17 +339,17 @@
   }
 
   /* ---------- full rolling market-data bar ---------- */
-  .ticker-wrap{
+   .ticker-wrap{
     width:100%;
-    max-width:820px;
-    margin:22px auto 0;
+    max-width:none;
+    margin:24px 0 0;
     overflow:hidden;
     background:var(--white);
-    border:1px solid var(--line);
-    border-radius:12px;
-    box-shadow:0 12px 30px rgba(22,48,94,0.06);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
     padding:22px 0;
   }
+  
   .ticker-track{
     display:flex;
     width:max-content;
@@ -526,14 +526,10 @@
     </div>
   </div>
 
-  <div class="hero-inner">
-    <ul class="checklist">
-      <li><span class="tick">✓</span> Score your stake's marketability in 2 minutes</li>
-      <li><span class="tick">✓</span> Get the full portfolio valuation model</li>
-      <li><span class="tick">✓</span> Access the same buyer network professional advisors use</li>
-    </ul>
-  </div>
-</main>
+  </main>
+<div class="ticker-wrap">
+    ... (paste the same ticker-item content back in here, unchanged) ...
+</div>
 
 <div id="cookie-banner">
   <p>This site uses cookies to improve your experience. <a href="#" id="cookie-learn-more">Learn more</a></p>
