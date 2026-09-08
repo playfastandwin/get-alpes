@@ -544,7 +544,7 @@
    ============================================================ */
 const SUPABASE_URL = "https://crrrlwklsmbfpqhhqedb.supabase.co";        // e.g. https://xxxxxxxx.supabase.co
 const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNycnJsd2tsc21iZnBxaGhxZWRiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODY2OTg1NjksImV4cCI6MjEwMjI3NDU2OX0.2jbb2tJ6VGijdHX0LU8kwpzW3wmeSvnApnJ7HdU_AMk";       // Settings → API → anon public key
-const DASHBOARD_URL = "alpes-dashboard.html";              // where users land after a successful login
+const DASHBOARD_URL = "/dashboard/";              // where users land after a successful login
 
 const AUTH_CONFIGURED = !SUPABASE_URL.includes("YOUR_SUPABASE") && !SUPABASE_ANON_KEY.includes("YOUR_SUPABASE");
 const supabaseClient = AUTH_CONFIGURED && window.supabase
@@ -671,7 +671,7 @@ document.getElementById("google-btn").addEventListener("click", async () => {
   }
   await supabaseClient.auth.signInWithOAuth({
     provider: "google",
-    options: { redirectTo: window.location.origin + "/" + DASHBOARD_URL }
+        options: { redirectTo: window.location.origin + DASHBOARD_URL }
   });
 });
 
@@ -682,7 +682,7 @@ document.getElementById("linkedin-btn").addEventListener("click", async () => {
   }
   await supabaseClient.auth.signInWithOAuth({
     provider: "linkedin_oidc",
-    options: { redirectTo: window.location.origin + "/" + DASHBOARD_URL }
+        options: { redirectTo: window.location.origin + DASHBOARD_URL }
   });
 });
 </script>
